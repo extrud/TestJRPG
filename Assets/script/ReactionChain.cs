@@ -32,7 +32,7 @@ using System.Text;
         {
             foreach (var ev in Events)
             {
-                ev.Activate(ba)
+                ev.Activate(ba.battle);
             }
         }
         else

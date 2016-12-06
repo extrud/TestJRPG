@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 
 
-    interface IBattleEvent
+    public abstract class IBattleEvent
     {
-    void Activate(Battle bttl);
-    void End();        
+
+    public abstract void Activate(Battle bttl);
+    protected void End(Battle bttl)
+        {
+            bttl.EventEnd();
+        }        
     }
 
