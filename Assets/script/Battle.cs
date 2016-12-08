@@ -1,16 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Battle : MonoBehaviour {
+public class Battle:MonoBehaviour  {
 
     bool End;
-    BattleCharacter charL;
-    BattleCharacter charR;
+   
+    public BattleCharacter charL;
+    public BattleCharacter charR;
     BattleCharacter CurrentCharacter;
+    public MessController mc;
     List<IBattleEvent> Events = new List<IBattleEvent>();
+    void Start()
+    {
+        mc = GameObject.Find("MC").GetComponent<MessController>();
+    }
+   public  Mess CreateMess(string str)
+    {
+
+        return mc.CreateDlg(str);
+    }
+    public void AddEventNext(IBattleEvent ev)
+    {
+        Events.Insert(1, ev);
+    }
+    public void AddEvent( IBattleEvent ibe)
+    {
+        Events.Add(ibe);
+    }
+    public void NextEvent()
+    {
+        Events[0].Activate(this);
+    }
     public void EventEnd()
     {
-        Events.RemoveAt(0);
+       
+        if(Events.Count>0)
+            Events.RemoveAt(0);
         if (End)
         {
             return;
@@ -31,8 +56,9 @@ public class Battle : MonoBehaviour {
             Events.Add(CurrentCharacter.Action);
             
         }
+        NextEvent();
     }
-
+    
 	void Update () {
 	
 	}

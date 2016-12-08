@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-    class BattleAction
+   public class BattleAction
     {
     public BattleAction(Battle battle,BattleCharacter from,BattleCharacter to)
     {

@@ -8,7 +8,7 @@ class PlayerBatlleCharacter : BattleCharacter
 
 {
     Player player;
-    public PlayerBatlleCharacter(Player pl ,int HP, string status, Battle battle, IBattleEvent Action ) : base(HP, status, battle, Action)
+    public PlayerBatlleCharacter(Player pl ,int HP, string status, Battle battle, IBattleEvent Action ) : base("Player",HP, status, battle)
     {
         player = pl;
     }
